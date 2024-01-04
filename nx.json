@@ -6,7 +6,7 @@
     "warnings": {
       "versionMismatch": false
     },
-    "packageManager": "pnpm",
+    "packageManager": "npm",
     "analytics": false
   },
   "generators": {
