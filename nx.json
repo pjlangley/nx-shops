@@ -6,7 +6,7 @@
     "warnings": {
       "versionMismatch": false
     },
-    "packageManager": "pnpm",
+    "packageManager": "npm",
     "analytics": false
   },
   "generators": {
@@ -88,5 +88,6 @@
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
   },
-  "parallel": 1
+  "parallel": 1,
+  "nxCloudAccessToken": ""
 }
