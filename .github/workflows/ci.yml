@@ -12,8 +12,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: Restore cached npm dependencies
+        # https://github.com/marketplace/actions/cache
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress
+          key: npm-dependencies-${{ hashFiles('package-lock.json') }}
       - run: npm install
+      - name: Cache npm dependencies
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress
+          key: npm-dependencies-${{ hashFiles('package-lock.json') }}
       - run: npx nx build cart
